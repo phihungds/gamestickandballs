@@ -5,7 +5,12 @@ function Stick(x, y, w, h, ctx) {
     this.h = h 
     this.ctx = ctx
     
-    
+    this.moveLeft = function () {
+        this.x--
+    }
+    this.moveRight = function () {
+        this.x++
+    }
     this.draw = function () {
         this.ctx.beginPath();
         this.ctx.fillStyle = '#000000';
