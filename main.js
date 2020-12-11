@@ -11,7 +11,7 @@ window.addEventListener ("mousemove", function move(event){
 function tick() {
   // ... chạy các câu lệnh tại mỗi khung hình
   //game.requestNextFrame()
-  //game.draw()
+  game.draw()
 
   window.requestAnimationFrame(tick)
 }
