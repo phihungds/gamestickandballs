@@ -5,7 +5,6 @@ function Game(canvas, scoreElement) {
     let ctx = document.getElementById("game").getContext("2d")
     let ball = new Ball(20, 20, 4, 4, 20, 20, ctx)
     let stick = new Stick(150, 540, 100, 10, ctx)
-    timeLoop = 1000 / 30
     
     this.draw = function() {
         ball.ctx.clearRect(0, 0, 800, 600)
