@@ -5,16 +5,11 @@ let game = new Game(canvas, score)
 window.requestAnimationFrame(tick)
 
 window.addEventListener ("mousemove", function move(event){
-  let mouseCoordinates = event.clientX
-  game.moveStickToward(mouseCoordinates)
+  let target = event.clientX
+  game.updateTarget(target)
 })
 function tick() {
-  // ... chạy các câu lệnh tại mỗi khung hình
-  //game.requestNextFrame()
+  game.calculatorNextState()
   game.draw()
-
   window.requestAnimationFrame(tick)
-}
-function checkCoordinates(e) {
-  return e.clientX
 }
