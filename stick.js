@@ -13,7 +13,7 @@ function Stick(x, y, w, h, ctx) {
         this.ctx.fillRect(this.x, this.y, this.w, this.h)
     }
     this.moveTowardTarget = function () {
-        console.log(this.x)
+        
         let doLech = target - this.x
         this.v = Math.round(doLech / 20)
          this.x += this.v

@@ -8,7 +8,7 @@ function Ball(x, y, vx, vy, w, h, ctx) {
     this.h = h
     this.ctx = ctx
     this.move = function () {
-        if (this.y + this.h > 550 || this.y <= 0) {
+        if ( this.y <= 0) {
             this.vy = -this.vy
         }
         if (this.x + this.w > 400 || this.x <= 0) {
