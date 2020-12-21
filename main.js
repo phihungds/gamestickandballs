@@ -1,5 +1,5 @@
 let canvas = document.getElementById('gameCanvas')
-let score = document.getElementById("score")
+//let score = document.getElementById("score")
 let game = new Game(canvas, score)
 
 window.requestAnimationFrame(tick)

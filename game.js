@@ -20,35 +20,57 @@ function Game(canvas, scoreElement) {
     this.reverseY()
     score++
   }
-  this.reverseY = function() {
+  this.reverseY = function () {
     ball.vy = -ball.vy
   }
-  this.reverseX = function() {
+  this.reverseX = function () {
     ball.vx = -ball.vx
   }
-  this.gameOver = function() {
-    document.write("Bạn thua")
+  this.gameOver = function () {
+    alert("Bạn thua ! Điểm số của bạn là : " + score)
+    document.location.reload()
   }
   this.checkTouch = function () {
     if (ball.y + ball.h > stick.y) {
       if (ball.x > stick.x && ball.x < stick.x + stick.w) {
         this.stickTouchBall()
       }
-      else {
+      else if (ball.y > 550) {
         this.gameOver()
       }
-    } 
-    else if ( ball.y <= 0) {
+    }
+    else if (ball.y <= 0) {
       this.reverseY()
     }
     else if (ball.x + ball.w > 400 || ball.x <= 0) {
       this.reverseX()
     }
   }
+  this.updateSpeed = function () {
+    switch (score) {
+      case 3:
+        ball.vx = 3
+        ball.vy =3
+        break
+      case 15:
+        ball.vx++
+        ball.vy++
+        break
+    }
+  }
+
+  this.moreBall = function () {
+    let newBall = new Ball(ball.x, ball.y, -ball.vx, ball.vy, 20, 20, ctx)
+  }
+  this.updateScore = function () {
+    document.getElementById("score").innerText = score
+  }
   this.calculatorNextState = function () {
     ball.move()
     stick.moveTowardTarget()
     this.checkTouch()
+    this.updateScore()
+    //this.updateSpeed()
   }
 }
 
